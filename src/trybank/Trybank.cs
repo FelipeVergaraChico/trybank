@@ -43,7 +43,7 @@ public class TrybankLib
     {
         if (Logged)
         {
-            throw new AccessViolationException("Usuário já está logado!");
+            throw new AccessViolationException("Usuário já está logado");
         }
 
         for (int index = 0; index < registeredAccounts; index++)
@@ -57,7 +57,7 @@ public class TrybankLib
                 }
                 else
                 {
-                    throw new ArgumentException("Senha incorreta!");
+                    throw new ArgumentException("Senha incorreta");
                 }
             }
             else
@@ -72,7 +72,7 @@ public class TrybankLib
     {
         if (!Logged)
         {
-            throw new AccessViolationException("Usuário não está logado!");
+            throw new AccessViolationException("Usuário não está logado");
         }
 
         Logged = false;
@@ -84,7 +84,7 @@ public class TrybankLib
     {
         if (!Logged)
         {
-            throw new AccessViolationException("Usuário não está logado!");
+            throw new AccessViolationException("Usuário não está logado");
         }
 
         return Bank[loggedUser, 3];
@@ -95,7 +95,7 @@ public class TrybankLib
     {
         if (!Logged)
         {
-            throw new AccessViolationException("Usuário não está logado!");
+            throw new AccessViolationException("Usuário não está logado");
         }
 
         Bank[loggedUser, 3] += value;
@@ -106,12 +106,12 @@ public class TrybankLib
     {
         if (!Logged)
         {
-            throw new AccessViolationException("Usuário não está logado!");
+            throw new AccessViolationException("Usuário não está logado");
         }
 
         if (Bank[loggedUser, 3] < value)
         {
-            throw new InvalidOperationException("Saldo insuficiente!");
+            throw new InvalidOperationException("Saldo insuficiente");
         }
 
         Bank[loggedUser, 3] -= value;
@@ -122,13 +122,13 @@ public class TrybankLib
     {
         if (!Logged)
         {
-            throw new AccessViolationException("Usuário não está logado!");
+            throw new AccessViolationException("Usuário não está logado");
         }
         for (int i = 0; i < registeredAccounts; i++)
         {
             if (Bank[loggedUser, 3] < value)
             {
-                throw new InvalidOperationException("Saldo insuficiente!");
+                throw new InvalidOperationException("Saldo insuficiente");
             }
             else
             {
